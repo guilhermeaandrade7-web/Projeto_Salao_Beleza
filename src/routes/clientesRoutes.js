@@ -6,7 +6,18 @@ const authMiddleware = require('../middlewares/authMiddleware');
 
 router.post('/', (req, res) => {
 
-    res.send('Criar cliente');
+    const { nome } = req.body;
+
+    if(!nome){
+
+        return res.status(400).json({
+            mensagem: 'Nome é obrigatório'
+        });
+    }
+
+    res.status(201).json({
+        mensagem: 'Cliente criado com sucesso'
+    });
 });
 
 router.get('/', authMiddleware, (req, res) => {

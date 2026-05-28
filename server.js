@@ -8,6 +8,8 @@ const agendamentosRoutes = require('./src/routes/agendamentosRoutes');
 
 const cepRoutes = require('./src/routes/cepRoutes');
 
+const errorMiddleware = require('./src/middlewares/errorMiddleware');
+
 require('./src/database/database');
 
 const app = express();

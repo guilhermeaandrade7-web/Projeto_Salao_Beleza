@@ -8,6 +8,13 @@ router.post('/', (req, res) => {
 
     const { cliente, horario } = req.body;
 
+    if(!cliente || !horario){
+
+    return res.status(400).json({
+        mensagem: 'Cliente e horário são obrigatórios'
+    });
+}
+
     const data = new Date(horario);
 
     const diaSemana = data.getDay();
